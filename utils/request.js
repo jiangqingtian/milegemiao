@@ -8,6 +8,9 @@ module.exports = {
   },
   goodsCategory:function goodsCategory(data){
     return request('/o/index/grid/v1', 'get', data);
+  },
+  goods:function goods(data){
+    return request('/o/index/product/list/v1','get',data)
   }
 }
 

@@ -51,13 +51,13 @@
     <view class="weui-loadmore__tips weui-loadmore__tips_in-line">商品列表</view>
   </view>
   <view class="goods-container">
-    <view class="goods-box" wx:for="{{goods}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.id}}">
+    <view class="goods-box" wx:for="{{goods}}" wx:key="id" bindtap="toDetailsTap" data-id="{{item.productId}}">
       <view class="img-box">
-        <image src="{{item.pic}}" class="image" mode="aspectFill" lazy-load="true" />
+        <image src="{{item.mainPicUri}}" class="image" mode="aspectFill" lazy-load="true" />
       </view>
-      <view class="goods-title">{{item.name}}</view>
+      <view class="goods-title">{{item.productName}}</view>
       <view style='display:flex;'>
-        <view class="goods-price">¥ {{item.minPrice}}</view>
+        <view class="goods-price">¥ {{item.preferentialPrice}}</view>
         <view wx:if="{{item.originalPrice && item.originalPrice > 0}}" class="goods-price" style='color:#aaa;text-decoration:line-through'>¥ {{item.originalPrice}}</view>
       </view>
     </view>

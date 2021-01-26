@@ -87,55 +87,36 @@ Page({
       categories:res.data,
       prefix:WxRequest.OSS_BASE_URL,
     })
-    // const res = await WXAPI.goodsCategory()
-    // let categories = [];
-    // if (res.code == 0) {
-    //   const _categories = res.data.filter(ele => {
-    //     return ele.level == 1
-    //   })
-    //   categories = categories.concat(_categories)
-    // }
-    // this.setData({
-    //   categories: categories,
-    //   activeCategoryId: 0,
-    //   curPage: 1
-    // });
-    this.getGoodsList(0);
+    this.getGoodsList();
   },
-  async getGoodsList(categoryId, append) {
-    if (categoryId == 0) {
-      categoryId = "";
-    }
+  async getGoodsList() {
     wx.showLoading({
       "mask": true
     })
-    const res = await WXAPI.goods({
-      categoryId: categoryId,
-      page: 1,
-      pageSize: 10
+    const res = await WxRequest.goods({
+      categoryId: ''
     })
-    console.log(res)
     wx.hideLoading()
-    if (res.code == 404 || res.code == 700) {
-      let newData = {
-        loadingMoreHidden: false
-      }
-      if (!append) {
-        newData.goods = []
-      }
-      this.setData(newData);
-      return
-    }
-    let goods = [];
-    if (append) {
-      goods = this.data.goods
-    }
-    for (var i = 0; i < res.data.length; i++) {
-      goods.push(res.data[i]);
-    }
+    // if (res.code == 404 || res.code == 700) {
+    //   let newData = {
+    //     loadingMoreHidden: false
+    //   }
+    //   if (!append) {
+    //     newData.goods = []
+    //   }
+    //   this.setData(newData);
+    //   return
+    // }
+    // let goods = [];
+    // if (append) {
+    //   goods = this.data.goods
+    // }
+    // for (var i = 0; i < res.data.length; i++) {
+    //   goods.push(res.data[i]);
+    // }
     this.setData({
-      loadingMoreHidden: true,
-      goods: goods,
+      loadingMoreHidden: false,
+      goods: res.data,
     });
   },
 
@@ -181,6 +162,25 @@ Page({
       url: '/pages/search/index'
     })
   },
+  tapBanner(e){
+    const url = e.currentTarget.dataset.url
+    if (url) {
+      // wx.navigateTo({
+      //   url
+      // })
+    }
+  },
+  tabClick(e){
+    // const id = e.currentTarget.dataset.id
+    // console.log(id)
+    //   wx.navigateTo({
+    //    url: '/pages/goods/list?categoryId=' + e.currentTarget.id,
+    //  })
+    wx.setStorageSync("_categoryId", e.currentTarget.dataset.id)
+    wx.switchTab({
+      url: '/pages/category/category',
+    })
+  }
 }
 )
 

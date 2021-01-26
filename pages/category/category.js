@@ -28,7 +28,7 @@ Page({
     wx.showShareMenu({
       withShareTicket: true
     })
-    this.categories();
+    // this.categories();
   },
   async categories() {
     wx.showLoading({
@@ -60,7 +60,7 @@ Page({
         categories,
         categorySelected
       })
-      this.getGoodsList()
+      // this.getGoodsList()
     }
   },
   async getGoodsList() {
