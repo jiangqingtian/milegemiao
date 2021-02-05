@@ -11,6 +11,9 @@ module.exports = {
   },
   goods:function goods(data){
     return request('/o/index/product/list/v1','get',data)
+  },
+  goodsAddition:function goodsAddition(id) {
+    return request('/o/products/v1/'+id,'get',id)
   }
 }
 

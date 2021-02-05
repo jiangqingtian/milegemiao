@@ -3,4 +3,7 @@
  * Copyright 2019 Tencent, Inc.
  * Licensed under the MIT license
  */
-.weui-btn_disabled{color:rgba(0,0,0,.18);background-color:#fafafa}
+.weui-btn_disabled {
+    color: rgba(0, 0, 0, .18);
+    background-color: #fafafa
+}

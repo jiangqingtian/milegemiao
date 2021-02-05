@@ -23,7 +23,7 @@
     "compileHotReLoad": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
-    "useApiHostProcess": false,
+    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -41,7 +41,7 @@
   },
   "compileType": "miniprogram",
   "libVersion": "2.14.3",
-  "appid": "wxd0eaaebaa2e4ce01",
+  "appid": "wx921fe6aa80d36ff7",
   "projectname": "milegemiao",
   "debugOptions": {
     "hidedInDevtools": []
